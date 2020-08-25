@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junyi.dao.LectureDao" >
+
+    <resultMap id="studentResultMap" type="com.junyi.entity.Lecture">
+        <id  property="id" column="id"/>
+        <result property="name" column="name"/>
+        <collection property="studentLectureRefList" column="id"
+                    select="com.cream.dao.StudentLectureDao.findStudentLectureByStuId"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, name
+    </sql>
+
+
+    <select id="findAll" resultMap="studentResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from lecture
+    </select>
+
+</mapper>
