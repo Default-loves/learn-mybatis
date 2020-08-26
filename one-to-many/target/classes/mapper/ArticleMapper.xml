@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junyi.one2many.dao.ArticleDao" >
+
+    <resultMap id="baseResultMap" type="com.junyi.one2many.entity.Article">
+        <id  property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="authorId" column="author_id"/>
+    </resultMap>
+
+    <resultMap id="AuthorResultMap" type="com.junyi.one2many.entity.Article" extends="baseResultMap">
+        <association property="author" javaType="com.junyi.one2many.entity.Author">
+            <id  property="id" column="id"/>
+            <result property="name" column="name"/>
+        </association>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, name, author_id
+    </sql>
+
+
+    <select id="findAll" resultMap="AuthorResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from article
+    </select>
+
+    <select id="findById" resultMap="AuthorResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from article where id=#{id}
+    </select>
+
+    <select id="findByAuthorId" resultMap="baseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from article where author_id=#{id}
+    </select>
+
+</mapper>
