@@ -5,7 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/MyBatisLearning.iml" filepath="$PROJECT_DIR$/.idea/MyBatisLearning.iml" />
       <module fileurl="file://$PROJECT_DIR$/many-to-many/many-to-many.iml" filepath="$PROJECT_DIR$/many-to-many/many-to-many.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis-demo/mybatis-demo.iml" filepath="$PROJECT_DIR$/mybatis-demo/mybatis-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-generator/mybatis-generator.iml" filepath="$PROJECT_DIR$/mybatis-generator/mybatis-generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/one-to-many/one-to-many.iml" filepath="$PROJECT_DIR$/one-to-many/one-to-many.iml" />
+      <module fileurl="file://$PROJECT_DIR$/one-to-one/one-to-one.iml" filepath="$PROJECT_DIR$/one-to-one/one-to-one.iml" />
     </modules>
   </component>
 </project>

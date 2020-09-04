@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junyi.mapper.StudentMapper" >
+  <resultMap id="BaseResultMap" type="com.junyi.entity.Student" >
+    <id column="stu_id" property="stuId" jdbcType="INTEGER" />
+    <result column="stu_name" property="stuName" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="money" property="money" jdbcType="DOUBLE" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from student
+    where stu_id = #{stuId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junyi.entity.Student" >
+    insert into student (stu_id, stu_name, age, 
+      money)
+    values (#{stuId,jdbcType=INTEGER}, #{stuName,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+      #{money,jdbcType=DOUBLE})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.junyi.entity.Student" >
+    update student
+    set stu_name = #{stuName,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      money = #{money,jdbcType=DOUBLE}
+    where stu_id = #{stuId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select stu_id, stu_name, age, money
+    from student
+    where stu_id = #{stuId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select stu_id, stu_name, age, money
+    from student
+  </select>
+</mapper>

@@ -8,7 +8,8 @@
         <result property="authorId" column="author_id"/>
     </resultMap>
 
-    <resultMap id="AuthorResultMap" type="com.junyi.one2many.entity.Article" extends="baseResultMap">
+    <!--多对一的关联使用 association-->
+    <resultMap id="authorResultMap" type="com.junyi.one2many.entity.Article" extends="baseResultMap">
         <association property="author" javaType="com.junyi.one2many.entity.Author">
             <id  property="id" column="id"/>
             <result property="name" column="name"/>
@@ -20,13 +21,13 @@
     </sql>
 
 
-    <select id="findAll" resultMap="AuthorResultMap">
+    <select id="findAll" resultMap="authorResultMap">
         select
         <include refid="Base_Column_List"/>
         from article
     </select>
 
-    <select id="findById" resultMap="AuthorResultMap">
+    <select id="findById" resultMap="authorResultMap">
         select
         <include refid="Base_Column_List"/>
         from article where id=#{id}
