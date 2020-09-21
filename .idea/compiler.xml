@@ -9,28 +9,31 @@
         <outputRelativeToContentRoot value="true" />
         <module name="one-to-one" />
         <module name="mybatis-generator" />
-        <module name="mybatis-demo" />
+        <module name="general" />
         <module name="many-to-many" />
         <module name="one-to-many" />
+        <module name="param-collection" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="general" target="1.8" />
       <module name="many-to-many" target="1.8" />
-      <module name="mybatis-demo" target="1.8" />
       <module name="mybatis-generator" target="1.8" />
       <module name="MyBatisLearning" target="1.8" />
       <module name="one-to-many" target="1.8" />
       <module name="one-to-one" target="1.8" />
+      <module name="param-collection" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="MyBatisLearning" options="-parameters" />
+      <module name="general" options="-parameters" />
       <module name="many-to-many" options="-parameters" />
-      <module name="mybatis-demo" options="-parameters" />
       <module name="mybatis-generator" options="-parameters" />
       <module name="one-to-many" options="-parameters" />
       <module name="one-to-one" options="-parameters" />
+      <module name="param-collection" options="-parameters" />
     </option>
   </component>
 </project>

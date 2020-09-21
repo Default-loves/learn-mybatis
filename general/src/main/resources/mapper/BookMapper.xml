@@ -17,7 +17,6 @@
         select
         <include refid="Base_Column_List"/>
         from book
-        where create_date_time >= "2020-09-03 06:04:35"
     </select>
 
     <select id="findById" resultMap="baseResultMap">

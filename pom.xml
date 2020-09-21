@@ -6,6 +6,7 @@
     <modules>
         <module>one-to-one</module>
         <module>mybatis-generator</module>
+        <module>param-collection</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
