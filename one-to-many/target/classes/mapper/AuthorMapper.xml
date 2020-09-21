@@ -14,6 +14,7 @@
                     select="com.junyi.one2many.dao.ArticleDao.findByAuthorId">
         </collection>
     </resultMap>
+
     <!--collection使用方式二：使用嵌套的方式-->
     <resultMap id="articleResultMap2" type="com.junyi.one2many.entity.Author">
         <id  property="id" column="author_id"/>
