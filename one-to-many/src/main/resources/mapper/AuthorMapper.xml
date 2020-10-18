@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junyi.one2many.dao.AuthoreDao" >
+
+    <resultMap id="baseResultMap" type="com.junyi.one2many.entity.Author">
+        <id  property="id" column="author_id"/>
+        <result property="name" column="author_name"/>
+    </resultMap>
+
+    <!--collection使用方式一：使用select标签-->
+    <resultMap id="articleResultMap1" type="com.junyi.one2many.entity.Author" extends="baseResultMap">
+        <!--注意：Author表的id字段，关联Article表的author_id字段。因此这儿的'column'值为Author表中的id字段-->
+        <collection property="articles" column="id" ofType="com.junyi.one2many.entity.Article"
+                    select="com.junyi.one2many.dao.ArticleDao.findByAuthorId">
+        </collection>
+    </resultMap>
+
+    <!--collection使用方式二：使用嵌套的方式-->
+    <resultMap id="articleResultMap2" type="com.junyi.one2many.entity.Author">
+        <id  property="id" column="author_id"/>
+        <result property="name" column="author_name"/>
+        <collection property="articles" ofType="com.junyi.one2many.entity.Article" column="author_id">
+            <id  property="id" column="article_id"/>
+            <result property="name" column="article_name"/>
+            <result property="authorId" column="author_id"/>
+        </collection>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, name
+    </sql>
+
+
+    <select id="findAll" resultMap="articleResultMap1">
+        select
+        <include refid="Base_Column_List"/>
+        from author
+    </select>
+
+    <select id="findById" resultMap="articleResultMap1">
+        select
+        <include refid="Base_Column_List"/>
+        from author where id=#{id}
+    </select>
+
+
+    <select id="findAuthorAndArticle" resultMap="articleResultMap2">
+        select
+            author.id as author_id,
+            author.name as author_name,
+            article.id as article_id,
+            article.name as article_name
+        from author, article
+        where author.id=article.author_id
+    </select>
+
+
+</mapper>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junyi.param.dao.BookDao" >
+
+    <resultMap id="baseResultMap" type="com.junyi.param.entity.Book">
+        <id  property="id" column="id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="createDateTime" column="create_date_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+
+    <sql id="Base_Column_List">
+        id, name, create_date_time
+    </sql>
+
+    <select id="findById" resultMap="baseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from book where id=#{id}
+    </select>
+
+    <!--参数值为 ArrayList-->
+    <insert id="batchInsertList">
+        insert into book
+        (name, create_date_time)
+        values
+        <foreach collection="list" item="book" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="book.name != null" >
+                    #{book.name},
+                </if>
+                <if test="book.createDateTime != null" >
+                    #{book.createDateTime},
+                </if>
+            </trim>
+        </foreach>
+    </insert>
+
+    <!--参数值为数组-->
+    <insert id="batchInsertArray">
+        insert into book
+        (name, create_date_time)
+        values
+        <foreach collection="array" item="book" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="book.name != null" >
+                    #{book.name},
+                </if>
+                <if test="book.createDateTime != null" >
+                    #{book.createDateTime},
+                </if>
+            </trim>
+        </foreach>
+    </insert>
+
+    <!--参数值为数组-->
+    <select id="selectByMap" resultMap="baseResultMap" resultType="com.junyi.param.entity.Book">
+        select id, name, create_date_time
+        from book
+        <where>
+            <foreach collection="book" item="v" index="k">
+                AND ${k} = #{v}
+            </foreach>
+        </where>
+    </select>
+
+    <select id="findPOJOList" parameterType="com.junyi.param.entity.Book" resultMap="baseResultMap">
+        select name
+        from book
+        <where>
+            <if test="name != null" >
+                AND name = #{name}
+            </if>
+            <if test="authorIdList != null">
+                AND author_id in
+                <foreach collection="authorIdList" item="aid" open="(" close=")" separator=",">
+                    #{aid}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+    <select id="findPOJOArray" parameterType="com.junyi.param.entity.Book" resultMap="baseResultMap">
+        select name
+        from book
+        <where>
+            <if test="name != null" >
+                AND name = #{name}
+            </if>
+            <if test="authorIdArray != null">
+                AND author_id in
+                <foreach collection="authorIdArray" item="aid" open="(" close=")" separator=",">
+                    #{aid}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

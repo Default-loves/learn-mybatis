@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junyi.one2one.dao.BookDao" >
+
+    <resultMap id="baseResultMap" type="com.junyi.one2one.entity.Book">
+        <id  property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="createDateTime" column="create_date_time"/>
+    </resultMap>
+
+    <resultMap id="authorResultMap" type="com.junyi.one2one.entity.Book">
+        <id  property="id" column="book_id"/>
+        <result property="name" column="book_name"/>
+        <result property="createDateTime" column="create_date_time"/>
+        <association property="author" javaType="com.junyi.one2one.entity.Author">
+            <id property="id" column="author_id"/>
+            <result property="name" column="author_name"/>
+        </association>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, name, create_date_time
+    </sql>
+
+    <select id="findById" resultMap="baseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from book where id=#{id}
+    </select>
+    
+    <select id="findBookAuthor" resultMap="authorResultMap">
+        select
+            a.id author_id,
+            b.id book_id,
+            a.name author_name,
+            b.name book_name,
+            b.create_date_time
+        from author a, book b
+        where b.author_id=a.id
+    </select>
+
+
+</mapper>

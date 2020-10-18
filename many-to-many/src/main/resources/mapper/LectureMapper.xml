@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junyi.many2many.dao.LectureDao" >
+
+    <resultMap id="lectureResultMap" type="com.junyi.many2many.entity.Lecture">
+        <id  property="id" column="lec_id"/>
+        <result property="name" column="lec_name"/>
+        <collection property="students" column="lec_id"
+                    select="com.junyi.many2many.dao.StudentLectureRefDao.findStudentLectureByLecId"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        lec_id, lec_name
+    </sql>
+
+
+    <select id="findAll" resultMap="lectureResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from lecture
+    </select>
+
+    <select id="findById" resultMap="lectureResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from lecture
+        where lec_id=#{id}
+    </select>
+
+</mapper>

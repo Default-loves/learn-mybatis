@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junyi.general.dao.BookDao" >
+
+    <resultMap id="baseResultMap" type="com.junyi.general.entity.Book">
+        <id  property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="createDateTime" column="create_date_time"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, name, create_date_time
+    </sql>
+
+
+    <select id="findAll" resultMap="baseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from book
+    </select>
+
+    <select id="findById" resultMap="baseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from book where id=#{id}
+    </select>
+    
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.junyi.general.entity.Book">
+        insert into book (name, create_date_time)
+        values (#{name}, #{createDateTime})
+    </insert>
+
+    <insert id="insertBySelectKey" parameterType="com.junyi.general.entity.Book">
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            select if(max(id) is null, 1, max(id)+3) from book
+        </selectKey>
+        insert into book (id, name, create_date_time)
+        values (#{id}, #{name}, #{createDateTime})
+    </insert>
+
+    <update id="batchUpdate" parameterType="com.junyi.general.entity.Book1">
+        <foreach collection="mapMy" item="v" index="k"  separator=";" open="" close=";">
+            update book
+            <set>
+                description=#{v}
+            </set>
+            where author_id=#{authorId} AND name like #{k}
+        </foreach>
+    </update>
+
+
+</mapper>

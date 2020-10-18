@@ -2,10 +2,15 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+<<<<<<< HEAD
+=======
+      <profile default="true" name="Default" enabled="true" />
+>>>>>>> ffd3c3b08754962af89c7d3f04ed03fc0f0b1b76
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+<<<<<<< HEAD
         <module name="simple" />
       </profile>
     </annotationProcessing>
@@ -14,4 +19,35 @@
       <module name="simple" target="1.5" />
     </bytecodeTargetLevel>
   </component>
+=======
+        <module name="one-to-one" />
+        <module name="mybatis-generator" />
+        <module name="general" />
+        <module name="many-to-many" />
+        <module name="one-to-many" />
+        <module name="param-collection" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="general" target="1.8" />
+      <module name="many-to-many" target="1.8" />
+      <module name="mybatis-generator" target="1.8" />
+      <module name="MyBatisLearning" target="1.8" />
+      <module name="one-to-many" target="1.8" />
+      <module name="one-to-one" target="1.8" />
+      <module name="param-collection" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="MyBatisLearning" options="-parameters" />
+      <module name="general" options="-parameters" />
+      <module name="many-to-many" options="-parameters" />
+      <module name="mybatis-generator" options="-parameters" />
+      <module name="one-to-many" options="-parameters" />
+      <module name="one-to-one" options="-parameters" />
+      <module name="param-collection" options="-parameters" />
+    </option>
+  </component>
+>>>>>>> ffd3c3b08754962af89c7d3f04ed03fc0f0b1b76
 </project>
