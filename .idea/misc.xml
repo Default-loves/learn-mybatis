@@ -3,23 +3,14 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-<<<<<<< HEAD
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/one-to-one/pom.xml" />
       </list>
     </option>
-  </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/out" />
-  </component>
-=======
-        <option value="$PROJECT_DIR$/mybatis-demo/pom.xml" />
-        <option value="$PROJECT_DIR$/one-to-many/pom.xml" />
-        <option value="$PROJECT_DIR$/many-to-many/pom.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/general/pom.xml" />
-      </list>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/simple/pom.xml" />
+      </set>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
->>>>>>> ffd3c3b08754962af89c7d3f04ed03fc0f0b1b76
 </project>

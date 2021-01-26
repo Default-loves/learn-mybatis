@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/MyBatisLearning.iml" filepath="$PROJECT_DIR$/.idea/MyBatisLearning.iml" />
-<<<<<<< HEAD
-      <module fileurl="file://$PROJECT_DIR$/simple/simple.iml" filepath="$PROJECT_DIR$/simple/simple.iml" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/general/general.iml" filepath="$PROJECT_DIR$/general/general.iml" />
-      <module fileurl="file://$PROJECT_DIR$/many-to-many/many-to-many.iml" filepath="$PROJECT_DIR$/many-to-many/many-to-many.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/learn-mybatis.iml" filepath="$PROJECT_DIR$/.idea/learn-mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis-generator/mybatis-generator.iml" filepath="$PROJECT_DIR$/mybatis-generator/mybatis-generator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/one-to-many/one-to-many.iml" filepath="$PROJECT_DIR$/one-to-many/one-to-many.iml" />
       <module fileurl="file://$PROJECT_DIR$/one-to-one/one-to-one.iml" filepath="$PROJECT_DIR$/one-to-one/one-to-one.iml" />
       <module fileurl="file://$PROJECT_DIR$/param-collection/param-collection.iml" filepath="$PROJECT_DIR$/param-collection/param-collection.iml" />
->>>>>>> ffd3c3b08754962af89c7d3f04ed03fc0f0b1b76
     </modules>
   </component>
 </project>

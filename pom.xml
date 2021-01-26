@@ -3,17 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-<<<<<<< HEAD
 
     <groupId>com.junyi</groupId>
     <artifactId>my-batis-learning</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>simple</module>
-    </modules>
     <packaging>pom</packaging>
     
-=======
+
     <modules>
         <module>one-to-one</module>
         <module>mybatis-generator</module>
@@ -98,5 +94,4 @@
             </plugin>
         </plugins>
     </build>
->>>>>>> ffd3c3b08754962af89c7d3f04ed03fc0f0b1b76
 </project>
