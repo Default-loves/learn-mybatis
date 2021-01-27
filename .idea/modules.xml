@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/general/general.iml" filepath="$PROJECT_DIR$/general/general.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/learn-mybatis.iml" filepath="$PROJECT_DIR$/.idea/learn-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/many-to-many/many-to-many.iml" filepath="$PROJECT_DIR$/many-to-many/many-to-many.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis-generator/mybatis-generator.iml" filepath="$PROJECT_DIR$/mybatis-generator/mybatis-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/one-to-many/one-to-many.iml" filepath="$PROJECT_DIR$/one-to-many/one-to-many.iml" />
       <module fileurl="file://$PROJECT_DIR$/one-to-one/one-to-one.iml" filepath="$PROJECT_DIR$/one-to-one/one-to-one.iml" />
       <module fileurl="file://$PROJECT_DIR$/param-collection/param-collection.iml" filepath="$PROJECT_DIR$/param-collection/param-collection.iml" />
     </modules>
