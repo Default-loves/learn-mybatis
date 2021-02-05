@@ -8,6 +8,7 @@
 - 模块`mybatis-generator`演示的是`mybatis-generator`的使用，能够根据mysql数据库的表格，以及配置文件generatorConfig.xml自动生成entity类，Dao类，XXXMapper.xml等，能够提高使用MyBatis的效率
   - 使用：配置好generatorConfig.xml，位置在于/resources/mybatis-generator文件夹中，需要根据自身情况修改当中的内容，由于我们在pom中添加了mybatis-generator-maven-plugin，因此我们可以通过maven->plugins->mybatis-generator:generate来启动，运行完成后提示成功则文件生成完毕
   
+
 注意：
 - 每个模块包含以下包：entity、dao、controller，由于只是演示MyBatis的功能，所以省略了service层
 
@@ -15,7 +16,12 @@
 
 
 
+### Other
 
+- xml文件中进行小于判断：<![CDATA[<=]]>
+- DAO类方法中的参数如果是基本类型，需要添加@Param指定名称
+- MyBatis中if标签中不能用“AND”，而要用“and”
+- like concat('%',#{parkNames},'%')
 
 
 
