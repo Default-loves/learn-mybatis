@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/mybatis-generator/mybatis-generator.iml" filepath="$PROJECT_DIR$/mybatis-generator/mybatis-generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/one-to-many/one-to-many.iml" filepath="$PROJECT_DIR$/one-to-many/one-to-many.iml" />
       <module fileurl="file://$PROJECT_DIR$/one-to-one/one-to-one.iml" filepath="$PROJECT_DIR$/one-to-one/one-to-one.iml" />
+      <module fileurl="file://$PROJECT_DIR$/page-helper/page-helper.iml" filepath="$PROJECT_DIR$/page-helper/page-helper.iml" />
       <module fileurl="file://$PROJECT_DIR$/param-collection/param-collection.iml" filepath="$PROJECT_DIR$/param-collection/param-collection.iml" />
     </modules>
   </component>

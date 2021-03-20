@@ -6,12 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="one-to-one" />
         <module name="mybatis-generator" />
         <module name="general" />
         <module name="many-to-many" />
         <module name="param-collection" />
+        <module name="one-to-one" />
         <module name="one-to-many" />
+        <module name="page-helper" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -21,6 +22,7 @@
       <module name="mybatis-generator" target="1.8" />
       <module name="one-to-many" target="1.8" />
       <module name="one-to-one" target="1.8" />
+      <module name="page-helper" target="8" />
       <module name="param-collection" target="1.8" />
       <module name="simple" target="1.8" />
     </bytecodeTargetLevel>
@@ -32,6 +34,7 @@
       <module name="mybatis-generator" options="-parameters" />
       <module name="one-to-many" options="-parameters" />
       <module name="one-to-one" options="-parameters" />
+      <module name="page-helper" options="-parameters" />
       <module name="param-collection" options="-parameters" />
     </option>
   </component>
