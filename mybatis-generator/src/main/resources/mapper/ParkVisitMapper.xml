@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junyi.mapper.ParkVisitMapper" >
+  <resultMap id="BaseResultMap" type="com.junyi.entity.ParkVisit" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="car_no" property="carNo" jdbcType="VARCHAR" />
+    <result column="object_id" property="objectId" jdbcType="VARCHAR" />
+    <result column="car_type" property="carType" jdbcType="TINYINT" />
+    <result column="start_date" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="end_date" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="single_use" property="singleUse" jdbcType="TINYINT" />
+    <result column="visit_name" property="visitName" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="is_used" property="isUsed" jdbcType="TINYINT" />
+    <result column="update_time_stamp" property="updateTimeStamp" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from park_visit
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="com.junyi.entity.ParkVisit" >
+    insert into park_visit (id, car_no, object_id, 
+      car_type, start_date, end_date, 
+      single_use, visit_name, phone,
+      create_time, is_used, update_time_stamp
+      )
+    values (#{id,jdbcType=INTEGER}, #{carNo,jdbcType=VARCHAR}, #{objectId,jdbcType=VARCHAR}, 
+      #{carType,jdbcType=TINYINT}, #{startDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP}, 
+      #{singleUse,jdbcType=TINYINT}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{isUsed,jdbcType=TINYINT}, #{updateTimeStamp,jdbcType=TIMESTAMP}
+      )
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com.junyi.entity.ParkVisit" >
+    update park_visit
+    set car_no = #{carNo,jdbcType=VARCHAR},
+      object_id = #{objectId,jdbcType=VARCHAR},
+      car_type = #{carType,jdbcType=TINYINT},
+      start_date = #{startDate,jdbcType=TIMESTAMP},
+      end_date = #{endDate,jdbcType=TIMESTAMP},
+      single_use = #{singleUse,jdbcType=TINYINT},
+      visit_name = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      is_used = #{isUsed,jdbcType=TINYINT},
+      update_time_stamp = #{updateTimeStamp,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, car_no, object_id, car_type, start_date, end_date, single_use, visit_name,
+    phone, create_time, is_used, update_time_stamp
+    from park_visit
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, car_no, object_id, car_type, start_date, end_date, single_use, visit_name,
+    phone, create_time, is_used, update_time_stamp
+    from park_visit
+  </select>
+
+</mapper>
