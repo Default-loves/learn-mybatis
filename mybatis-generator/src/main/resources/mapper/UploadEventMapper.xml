@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.junyi.mapper.UploadEventMapper">
+  <resultMap id="BaseResultMap" type="com.junyi.entity.UploadEvent">
+    <id column="car_no" jdbcType="VARCHAR" property="carNo" />
+    <result column="dsn" jdbcType="VARCHAR" property="dsn" />
+    <result column="event_type" jdbcType="INTEGER" property="eventType" />
+    <result column="event_time" jdbcType="TIMESTAMP" property="eventTime" />
+    <result column="car_type" jdbcType="INTEGER" property="carType" />
+    <result column="car_color_type" jdbcType="INTEGER" property="carColorType" />
+    <result column="in_pic" jdbcType="VARCHAR" property="inPic" />
+    <result column="small_pic" jdbcType="VARCHAR" property="smallPic" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from upload_event
+    where car_no = #{carNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junyi.entity.UploadEvent">
+    insert into upload_event (car_no, dsn, event_type, 
+      event_time, car_type, car_color_type, 
+      in_pic, small_pic)
+    values (#{carNo,jdbcType=VARCHAR}, #{dsn,jdbcType=VARCHAR}, #{eventType,jdbcType=INTEGER}, 
+      #{eventTime,jdbcType=TIMESTAMP}, #{carType,jdbcType=INTEGER}, #{carColorType,jdbcType=INTEGER}, 
+      #{inPic,jdbcType=VARCHAR}, #{smallPic,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.junyi.entity.UploadEvent">
+    update upload_event
+    set dsn = #{dsn,jdbcType=VARCHAR},
+      event_type = #{eventType,jdbcType=INTEGER},
+      event_time = #{eventTime,jdbcType=TIMESTAMP},
+      car_type = #{carType,jdbcType=INTEGER},
+      car_color_type = #{carColorType,jdbcType=INTEGER},
+      in_pic = #{inPic,jdbcType=VARCHAR},
+      small_pic = #{smallPic,jdbcType=VARCHAR}
+    where car_no = #{carNo,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select car_no, dsn, event_type, event_time, car_type, car_color_type, in_pic, small_pic
+    from upload_event
+    where car_no = #{carNo,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select car_no, dsn, event_type, event_time, car_type, car_color_type, in_pic, small_pic
+    from upload_event
+  </select>
+  <resultMap id="BaseResultMap" type="com.junyi.entity.UploadEvent">
+    <id column="car_no" jdbcType="VARCHAR" property="carNo" />
+    <result column="dsn" jdbcType="VARCHAR" property="dsn" />
+    <result column="guid" jdbcType="VARCHAR" property="guid" />
+    <result column="eventType" jdbcType="INTEGER" property="eventtype" />
+    <result column="eventTime" jdbcType="TIMESTAMP" property="eventtime" />
+    <result column="carType" jdbcType="INTEGER" property="cartype" />
+    <result column="carColorType" jdbcType="INTEGER" property="carcolortype" />
+    <result column="in_pic" jdbcType="VARCHAR" property="inPic" />
+    <result column="small_pic" jdbcType="VARCHAR" property="smallPic" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from upload_event
+    where car_no = #{carNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.junyi.entity.UploadEvent">
+    insert into upload_event (car_no, dsn, guid, 
+      eventType, eventTime, carType, 
+      carColorType, in_pic, small_pic
+      )
+    values (#{carNo,jdbcType=VARCHAR}, #{dsn,jdbcType=VARCHAR}, #{guid,jdbcType=VARCHAR}, 
+      #{eventtype,jdbcType=INTEGER}, #{eventtime,jdbcType=TIMESTAMP}, #{cartype,jdbcType=INTEGER}, 
+      #{carcolortype,jdbcType=INTEGER}, #{inPic,jdbcType=VARCHAR}, #{smallPic,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.junyi.entity.UploadEvent">
+    update upload_event
+    set dsn = #{dsn,jdbcType=VARCHAR},
+      guid = #{guid,jdbcType=VARCHAR},
+      eventType = #{eventtype,jdbcType=INTEGER},
+      eventTime = #{eventtime,jdbcType=TIMESTAMP},
+      carType = #{cartype,jdbcType=INTEGER},
+      carColorType = #{carcolortype,jdbcType=INTEGER},
+      in_pic = #{inPic,jdbcType=VARCHAR},
+      small_pic = #{smallPic,jdbcType=VARCHAR}
+    where car_no = #{carNo,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select car_no, dsn, guid, eventType, eventTime, carType, carColorType, in_pic, small_pic
+    from upload_event
+    where car_no = #{carNo,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select car_no, dsn, guid, eventType, eventTime, carType, carColorType, in_pic, small_pic
+    from upload_event
+  </select>
+</mapper>

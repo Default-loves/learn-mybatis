@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/learn-mybatis.iml" filepath="$PROJECT_DIR$/.idea/learn-mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/many-to-many/many-to-many.iml" filepath="$PROJECT_DIR$/many-to-many/many-to-many.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis-generator/mybatis-generator.iml" filepath="$PROJECT_DIR$/mybatis-generator/mybatis-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-plus/mybatis-plus.iml" filepath="$PROJECT_DIR$/mybatis-plus/mybatis-plus.iml" />
       <module fileurl="file://$PROJECT_DIR$/one-to-many/one-to-many.iml" filepath="$PROJECT_DIR$/one-to-many/one-to-many.iml" />
       <module fileurl="file://$PROJECT_DIR$/one-to-one/one-to-one.iml" filepath="$PROJECT_DIR$/one-to-one/one-to-one.iml" />
       <module fileurl="file://$PROJECT_DIR$/page-helper/page-helper.iml" filepath="$PROJECT_DIR$/page-helper/page-helper.iml" />

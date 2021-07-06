@@ -12,6 +12,7 @@
         <module name="param-collection" />
         <module name="one-to-one" />
         <module name="one-to-many" />
+        <module name="mybatis-plus" />
         <module name="page-helper" />
       </profile>
     </annotationProcessing>
@@ -20,6 +21,7 @@
       <module name="learn-mybatis" target="1.8" />
       <module name="many-to-many" target="1.8" />
       <module name="mybatis-generator" target="1.8" />
+      <module name="mybatis-plus" target="8" />
       <module name="one-to-many" target="1.8" />
       <module name="one-to-one" target="1.8" />
       <module name="page-helper" target="8" />
@@ -32,6 +34,7 @@
       <module name="general" options="-parameters" />
       <module name="many-to-many" options="-parameters" />
       <module name="mybatis-generator" options="-parameters" />
+      <module name="mybatis-plus" options="-parameters" />
       <module name="one-to-many" options="-parameters" />
       <module name="one-to-one" options="-parameters" />
       <module name="page-helper" options="-parameters" />
