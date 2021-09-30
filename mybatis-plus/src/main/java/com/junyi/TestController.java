@@ -69,6 +69,7 @@ public class TestController {
         return "OK";
     }
 
+    // 测试分页
     @GetMapping("page")
     public Page<Employee> page() {
         Page<Employee> page = new Page<>(1, 2);
@@ -84,7 +85,7 @@ public class TestController {
         return page;
     }
 
-
+    // 测试数据版本
     @GetMapping("testVersion")
     public void testVersion() {
         Employee employee = employeeService.getById(2L);

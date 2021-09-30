@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junyi.mapper.HuaweiSendedRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.junyi.entity.HuaweiSendedRecord" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="t_type" property="tType" jdbcType="TINYINT" />
+    <result column="t_id" property="tId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from huawei_sended_record
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junyi.entity.HuaweiSendedRecord" >
+    insert into huawei_sended_record (id, t_type, t_id, 
+      create_time)
+    values (#{id,jdbcType=INTEGER}, #{tType,jdbcType=TINYINT}, #{tId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.junyi.entity.HuaweiSendedRecord" >
+    update huawei_sended_record
+    set t_type = #{tType,jdbcType=TINYINT},
+      t_id = #{tId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select id, t_type, t_id, create_time
+    from huawei_sended_record
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select id, t_type, t_id, create_time
+    from huawei_sended_record
+  </select>
+</mapper>
