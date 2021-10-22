@@ -1,9 +1,12 @@
-package com.junyi;
+package com.junyi.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.junyi.mapper.EmployeeMapper;
+import com.junyi.model.Employee;
+import com.junyi.service.EmployeeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +22,7 @@ import java.util.List;
  */
 @RestController
 @Slf4j
-public class TestController {
+public class EmployeeController {
 
     @Autowired
     EmployeeMapper employeeMapper;

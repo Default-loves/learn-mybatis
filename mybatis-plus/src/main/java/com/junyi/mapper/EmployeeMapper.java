@@ -1,8 +1,8 @@
-package com.junyi;
+package com.junyi.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.junyi.model.Employee;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 

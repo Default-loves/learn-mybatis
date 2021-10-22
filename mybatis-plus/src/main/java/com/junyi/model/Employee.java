@@ -1,4 +1,4 @@
-package com.junyi;
+package com.junyi.model;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;

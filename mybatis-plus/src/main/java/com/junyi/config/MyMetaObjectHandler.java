@@ -1,4 +1,4 @@
-package com.junyi;
+package com.junyi.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import lombok.extern.slf4j.Slf4j;
