@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junyi.mapper.TrafficPlatformMapper" >
+  <resultMap id="BaseResultMap" type="com.junyi.entity.TrafficPlatform" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="parking_no" property="parkingNo" jdbcType="VARCHAR" />
+    <result column="config_json" property="configJson" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="create_id" property="createId" jdbcType="INTEGER" />
+    <result column="last_update_time" property="lastUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="last_update_id" property="lastUpdateId" jdbcType="INTEGER" />
+    <result column="last_update_name" property="lastUpdateName" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, parking_no, config_json, `type`, `status`, create_id, last_update_time, last_update_id, 
+    last_update_name, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from traffic_platform
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from traffic_platform
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.junyi.entity.TrafficPlatform" >
+    insert into traffic_platform (id, parking_no, config_json, 
+      `type`, `status`, create_id, 
+      last_update_time, last_update_id, last_update_name, 
+      create_time)
+    values (#{id,jdbcType=INTEGER}, #{parkingNo,jdbcType=VARCHAR}, #{configJson,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{createId,jdbcType=INTEGER}, 
+      #{lastUpdateTime,jdbcType=TIMESTAMP}, #{lastUpdateId,jdbcType=INTEGER}, #{lastUpdateName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.junyi.entity.TrafficPlatform" >
+    insert into traffic_platform
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="parkingNo != null" >
+        parking_no,
+      </if>
+      <if test="configJson != null" >
+        config_json,
+      </if>
+      <if test="type != null" >
+        `type`,
+      </if>
+      <if test="status != null" >
+        `status`,
+      </if>
+      <if test="createId != null" >
+        create_id,
+      </if>
+      <if test="lastUpdateTime != null" >
+        last_update_time,
+      </if>
+      <if test="lastUpdateId != null" >
+        last_update_id,
+      </if>
+      <if test="lastUpdateName != null" >
+        last_update_name,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="parkingNo != null" >
+        #{parkingNo,jdbcType=VARCHAR},
+      </if>
+      <if test="configJson != null" >
+        #{configJson,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createId != null" >
+        #{createId,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateTime != null" >
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateId != null" >
+        #{lastUpdateId,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateName != null" >
+        #{lastUpdateName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.junyi.entity.TrafficPlatform" >
+    update traffic_platform
+    <set >
+      <if test="parkingNo != null" >
+        parking_no = #{parkingNo,jdbcType=VARCHAR},
+      </if>
+      <if test="configJson != null" >
+        config_json = #{configJson,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        `status` = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createId != null" >
+        create_id = #{createId,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateTime != null" >
+        last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateId != null" >
+        last_update_id = #{lastUpdateId,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateName != null" >
+        last_update_name = #{lastUpdateName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.junyi.entity.TrafficPlatform" >
+    update traffic_platform
+    set parking_no = #{parkingNo,jdbcType=VARCHAR},
+      config_json = #{configJson,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=INTEGER},
+      `status` = #{status,jdbcType=TINYINT},
+      create_id = #{createId,jdbcType=INTEGER},
+      last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      last_update_id = #{lastUpdateId,jdbcType=INTEGER},
+      last_update_name = #{lastUpdateName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

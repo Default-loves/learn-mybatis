@@ -7,7 +7,7 @@
     <!-- 引入配置文件 -->
 
     <!--数据库的JDBC驱动，可以换成自己本地文件的驱动-->
-    <classPathEntry  location="F:\Tool\mysql-connector-java-8.0.21\mysql-connector-java-8.0.21.jar"/>
+    <classPathEntry  location="G:\Tool\mysql-connector-java-5.1.38\mysql-connector-java-5.1.38-bin.jar"/>
 
     <!-- 一个数据库一个context -->
     <!--defaultModelType="flat" 大数据字段，不分表 -->
@@ -40,7 +40,7 @@
         </commentGenerator>
 
         <!-- jdbc连接 -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.53.211/ykt?serverTimezone=UTC&amp;characterEncoding=utf-8" userId="root" password="123456"/>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://172.16.60.211/test?serverTimezone=UTC&amp;characterEncoding=utf-8" userId="root" password="123456"/>
         <!-- java类型处理器
             用于处理DB中的类型到Java中的类型，默认使用JavaTypeResolverDefaultImpl；
             注意一点，默认会先尝试使用Integer，Long，Short等来对应DECIMAL和 NUMERIC数据类型；
@@ -120,8 +120,8 @@
 
            注意，table里面很多参数都是对javaModelGenerator，context等元素的默认属性的一个复写；
         -->
-        <table tableName="sub_park" domainObjectName="" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="false"
-               enableSelectByExample="true" selectByExampleQueryId="true">
+        <table tableName="article" domainObjectName="" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
         <!-- table可以有多个,每个数据库中的表都可以写一个table，tableName表示要匹配的数据库表,也可以在tableName属性中通过使用%通配符来匹配所有数据库表,只有匹配的表才会自动生成文件 -->
         <!--
