@@ -25,3 +25,78 @@
 
 
 
+### 问题
+
+#### 属性映射不出来
+
+比如我们有如下的数据
+
+![image-20220715145737889](G:\GithubMy\my\learn-mybatis\image\image-20220715145737889.png)
+
+我们关注字段`shop_name`
+
+`mapper.xml`文件我们是这样写的
+
+```xml
+<resultMap id="BaseResultMap" type="com.junyi.domain.Article" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="text" property="text" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="money" property="money" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="shop_name" property="shopName" jdbcType="VARCHAR" />
+</resultMap>
+
+<sql id="Base_Column_List" >
+    id, `name`, `text`, remark, money, create_time, update_time
+</sql>
+```
+
+我们写个简单的查询
+
+```xml
+<select id="listAll" resultMap="BaseResultMap">
+    select
+    	<include refid="Base_Column_List" />
+    	, shop_name AS shopName
+    from article
+</select>
+```
+
+然后我们通过工具进行查询，发现`shopName`字段的值总是映射不到
+
+![image-20220715150314659](G:\GithubMy\my\learn-mybatis\image\image-20220715150314659.png)
+
+具体原因是因为我们写的查询语句，对于字段`shop_name`，使用了`resultMap`，还进行了字段别名的设置`shop_name AS shopName`
+
+解决办法是：
+
+1. 将AS删除
+
+```xml
+<select id="listAll" resultMap="BaseResultMap">
+    select
+        <include refid="Base_Column_List" />
+        , shop_name
+    from article
+</select>
+```
+
+2. 将`resultMap`的`shop_name`字段删除
+
+```xml
+<resultMap id="BaseResultMap" type="com.junyi.domain.Article" >
+  <id column="id" property="id" jdbcType="INTEGER" />
+  <result column="name" property="name" jdbcType="VARCHAR" />
+  <result column="text" property="text" jdbcType="VARCHAR" />
+  <result column="remark" property="remark" jdbcType="VARCHAR" />
+  <result column="money" property="money" jdbcType="INTEGER" />
+  <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  <!--<result column="shop_name" property="shopName" jdbcType="VARCHAR" />-->
+</resultMap>
+```
+
+不同的字段`resultMap`和`As XXX`是可以混合使用的，但是对于同一个字段，两个混用会存在问题
